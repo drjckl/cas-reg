@@ -1,0 +1,49 @@
+[project]
+name = "cas-reg"
+version = "0.1.0"
+description = "Implementation of a pydantic BaseModel class for CAS Registry Numbers® (CAS RN®);"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Cullen Klein", email = "jcklein@alumni.iu.edu"},
+]
+dependencies = [
+    "pydantic>=2.8.2",
+]
+
+[project.optional-dependencies]
+pandas = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+]
+
+[project.urls]
+Repository = "https://github.com/drjckl/cas-reg"
+Issues = "https://github.com/drjckl/cas-reg/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.2",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "pytest-cov>=7.0.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.17,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+source-exclude = [
+  "/.gitattributes",
+  "/.gitignore",
+  "/extras",
+  "/test",
+  "/uv.lock",
+  "*.pyc",
+  "__pycache__/",
+  "/dist",
+]
+module-name = "cas_reg"
