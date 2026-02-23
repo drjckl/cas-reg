@@ -316,12 +316,11 @@ class TestPandasIntegration:
     def test_cast_object_column_to_cas_dtype(self):
         """Test casting a DataFrame column from object dtype to CASDtype."""
         # Create DataFrame with CAS numbers as object dtype (strings)
+        # Note: pandas <3.0 stores string columns as object dtype; pandas 3.0+ uses StringDtype
         df = pd.DataFrame({
             "cas": ["50-00-0", "50-01-1", "58-08-2"],
             "name": ["Formaldehyde", "Sodium chloride", "Caffeine"]
         })
-        # Verify initial dtype is object
-        assert df["cas"].dtype == object
 
         # Cast the column to CASDtype
         df["cas"] = df["cas"].astype(CASDtype())

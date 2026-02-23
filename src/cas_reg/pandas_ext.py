@@ -85,6 +85,10 @@ class CASArray(ExtensionArray):
                     self._data = values.copy() # test that we have copied rather than referenced
                 else:
                     self._data = values
+        elif isinstance(values, ExtensionArray):
+            # Handle pandas ExtensionArrays (e.g. StringArray in pandas 3.0+)
+            # by delegating to the list branch
+            return self.__init__(list(values), dtype=dtype, copy=copy)
         else:
             raise TypeError(f"Cannot construct CASArray from {type(values)}") # test that this is raised properly
 
