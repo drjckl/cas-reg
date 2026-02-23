@@ -1,6 +1,6 @@
 # CAS Registry Numbers as a Pydantic baseclass and extended into a Pandas dtype
 
-A Python utility class for validating Chemical Abstract Service (CAS) Registry Numbers®. Pydantic is used for validation and is a dependency. 
+A Python utility class for validating Chemical Abstract Service (CAS) Registry Numbers®. Pydantic is used for validation and is a dependency.
 
 ## Overview
 
@@ -42,7 +42,7 @@ print(cas_number)
 
 # use pydantic's by_alias to produce the model as a dictionary with CAS
 print(cas_number.model_dump_json(by_alias=True))
->>> "{'CAS': '50-00-0'}"
+>>> "{'CAS': '7732-18-5'}"
 
 
 # Invalid CAS numbers do not validate
